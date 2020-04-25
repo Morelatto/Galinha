@@ -7,8 +7,13 @@ var drawLine = false
 var initial_mouse_pos = Vector2()
 var final_mouse_pos = Vector2()
 
+#Load nodes
 onready var chicken = get_parent().find_node("Chicken")
 onready var camera = get_parent().find_node("Camera")
+
+#Load resources
+onready var ghost_chicken_tex =  preload("res://Sprites/ghost_maromba.png")
+onready var boot_tex1 =  preload("res://Sprites/boot.png")
 
 enum GHOST_STATE {
 	in_kick_animation
@@ -42,6 +47,7 @@ func _calculate_kick_animation(delta):
 		drawLine = false
 
 func _calculate_prepare_for_kick():
+	look_at(chicken.position)
 	var mouse_position = _get_camera_mouse()
 	var mouse_direction = initial_mouse_pos - mouse_position
 	position = chicken.position - mouse_direction
@@ -55,11 +61,18 @@ func _input(event):
 		position = chicken.position
 		initial_mouse_pos = _get_camera_mouse()
 		state = GHOST_STATE.in_preparing_for_kick
+		$Sprite.texture = boot_tex1
+		$Sprite.show()
+		$AnimatedSprite.hide()
 		drawLine = true
 		
 	if event.is_action_released("ui_mouse_action"):
 		final_mouse_pos = _get_camera_mouse()
 		state = GHOST_STATE.in_kick_animation
+		$AnimatedSprite.show()
+		$Sprite.hide()
+		$Sprite.texture = ghost_chicken_tex
+		rotation = 0
 		
 
 func _draw():
