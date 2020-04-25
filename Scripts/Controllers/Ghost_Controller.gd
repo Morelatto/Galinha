@@ -6,6 +6,8 @@ var drawLine = false
 
 var initial_mouse_pos = Vector2()
 var final_mouse_pos = Vector2()
+#Configuration
+var kick_speed = 10
 
 #Load nodes
 onready var chicken = get_parent().find_node("Chicken")
@@ -37,13 +39,14 @@ func _process(delta):
 		position = pos
 		
 	update()
+
 func _calculate_kick_animation(delta):
 	var direction_player = position - chicken.position
-	direction_player = direction_player * 20 * delta
+	direction_player = direction_player * (kick_speed * delta)
 	translate(-direction_player)
 	if position.distance_to(chicken.position) < 8:
 		chicken.apply_force((initial_mouse_pos - final_mouse_pos) * 20)
-		state = GHOST_STATE.in_free_mode
+		change_state(GHOST_STATE.in_free_mode)
 		drawLine = false
 
 func _calculate_prepare_for_kick():
@@ -56,22 +59,35 @@ func _get_camera_mouse():
 	var cameraPos = get_global_mouse_position()
 	return camera.to_local(cameraPos)
 
+func change_state(new_state):
+	state = new_state
+	match new_state:
+		GHOST_STATE.in_free_mode:
+			$StaticSprite.hide()
+			$AnimatedSprite.show()
+			
+		GHOST_STATE.in_kick_animation:
+			$StaticSprite.show()
+			$AnimatedSprite.hide()
+			
+		GHOST_STATE.in_preparing_for_kick:
+			$StaticSprite.show()
+			$AnimatedSprite.hide()
+			#We can add a code that everytime he kicks
+			#the chicken a new object appears to kick it.
+			$StaticSprite.texture = boot_tex1
+			
+
 func _input(event):
 	if event.is_action_pressed("ui_mouse_action"):
 		position = chicken.position
 		initial_mouse_pos = _get_camera_mouse()
-		state = GHOST_STATE.in_preparing_for_kick
-		$Sprite.texture = boot_tex1
-		$Sprite.show()
-		$AnimatedSprite.hide()
+		change_state(GHOST_STATE.in_preparing_for_kick)
 		drawLine = true
 		
 	if event.is_action_released("ui_mouse_action"):
 		final_mouse_pos = _get_camera_mouse()
-		state = GHOST_STATE.in_kick_animation
-		$AnimatedSprite.show()
-		$Sprite.hide()
-		$Sprite.texture = ghost_chicken_tex
+		change_state(GHOST_STATE.in_kick_animation)
 		rotation = 0
 		
 
@@ -84,8 +100,3 @@ func _draw():
 		polygons.append(localMouse)
 		var color = Color(0.058,0.735,0)
 		draw_colored_polygon(polygons, color)
-	else:
-		var polygons = PoolVector2Array()
-		var color = Color(255,255,255)
-		var colors = PoolColorArray([color, color, color])
-		draw_polygon(polygons, colors)

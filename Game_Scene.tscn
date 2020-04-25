@@ -85,7 +85,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Chicken"]
 frames = SubResource( 6 )
 animation = "Idle"
-frame = 1
+frame = 2
 playing = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Chicken"]
@@ -98,7 +98,7 @@ position = Vector2( 150.549, 114.812 )
 z_index = 2
 script = ExtResource( 5 )
 
-[node name="Sprite" type="Sprite" parent="Ghost"]
+[node name="StaticSprite" type="Sprite" parent="Ghost"]
 visible = false
 texture = ExtResource( 6 )
 
