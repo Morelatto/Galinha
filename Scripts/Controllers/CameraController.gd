@@ -4,4 +4,5 @@ extends Camera2D
 onready var chicken = get_parent().find_node("Chicken")
 
 func _process(delta):
-	position = chicken.position
+	pass
+	#position = chicken.position
