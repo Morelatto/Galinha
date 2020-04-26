@@ -42,5 +42,5 @@ texture = ExtResource( 1 )
 [node name="GhostAnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 5 )
 animation = "idle"
-frame = 2
+frame = 3
 playing = true

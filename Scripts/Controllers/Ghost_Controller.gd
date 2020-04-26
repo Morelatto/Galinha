@@ -51,8 +51,7 @@ func _calculate_kick_animation(delta):
 	# distance from mouse (ghost) to chicken
 	if position.distance_to(chicken.position) < MIN_GHOST_DISTANCE:
 		chicken.apply_force(initial_mouse_pos - final_mouse_pos)
-		change_state(GHOST_STATE.in_free_mode)
-		drawLine = false
+		reset_kick()
 
 func _calculate_prepare_for_kick():
 	look_at(chicken.position)
