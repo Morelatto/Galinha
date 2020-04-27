@@ -73,7 +73,7 @@ func _calculate_prepare_for_kick():
 	if on_limit_kick:
 		new_position = mouse_direction.normalized() * -MAX_LINE_DISTANCE
 		new_position = chicken.position + new_position
-	position = new_position 
+	position = new_position
 
 func change_state(new_state):
 	state = new_state
@@ -124,7 +124,7 @@ func _draw():
 		polygons.append(to_local(chicken.position))
 		draw_colored_polygon(polygons, kick_polygon_color)
 		#else:
-			
+
 			#reset_kick()
 
 func reset_kick():
