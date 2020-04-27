@@ -39,6 +39,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 5 )
 animation = "Idle"
+frame = 2
 playing = true
 
 [node name="CollisionPolygon2D" type="CollisionShape2D" parent="."]
@@ -49,5 +50,5 @@ shape = SubResource( 6 )
 position = Vector2( 0, 5.2048 )
 current = true
 limit_left = 0
-limit_right = 300
-limit_bottom = 450
+limit_right = 600
+limit_bottom = 400
