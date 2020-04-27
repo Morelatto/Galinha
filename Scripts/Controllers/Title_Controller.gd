@@ -24,6 +24,7 @@ func _input(event):
 	if event.is_action_pressed("ui_cancel"):
 		position.y = -get_viewport().size.y * 2
 		text.position.y = -get_viewport().size.y
+		skip_button.hide()
 		animating_text = false
 		animating_background = false
 		animating_buttons = true
@@ -44,5 +45,6 @@ func animate_background(delta):
 	position.y -= scroll_speed_background * delta
 	if position.y < -get_viewport().size.y * 2:
 		position.y = -get_viewport().size.y * 2
+		skip_button.hide()
 		animating_background = false
 		animating_buttons = true

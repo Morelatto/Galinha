@@ -57,6 +57,11 @@ ui_mouse_action={
  ]
 }
 
+[physics]
+
+2d/time_before_sleep=0.1
+2d/default_gravity=196
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"
