@@ -37,13 +37,16 @@ extents = Vector2( 14.5, 14 )
 mass = 2.04082
 physics_material_override = SubResource( 7 )
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( -0.103531, -5.38345 )
 z_index = 6
 frames = SubResource( 5 )
 animation = "Idle"
-frame = 2
+frame = 3
 playing = true
 
 [node name="CollisionPolygon2D" type="CollisionShape2D" parent="."]

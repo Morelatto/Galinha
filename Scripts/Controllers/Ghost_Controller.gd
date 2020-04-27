@@ -57,6 +57,7 @@ func _calculate_kick_animation(delta):
 		if initial_mouse_pos.distance_to(final_mouse_pos) > MAX_LINE_DISTANCE:
 			distance_force = distance_force.normalized() * MAX_LINE_DISTANCE
 		chicken.apply_force(distance_force)
+		chicken.emit_feathers(chicken.position - position)
 		reset_kick()
 
 func _calculate_prepare_for_kick():

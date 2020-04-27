@@ -2,6 +2,8 @@ extends RigidBody2D
 
 const flying_speed = 5
 
+onready var particles = get_parent().find_node("Particles")
+
 var screen_size
 var screen_buffer = 4 # how far the chicken can move off screen before it reappears on the other side
 
@@ -10,6 +12,11 @@ func apply_force(direction):
 
 func _ready():
 	screen_size = get_viewport_rect().size
+
+func emit_feathers(direction):
+	particles.position = position
+	particles.rotation = direction.angle()
+	particles.emitting = true
 
 #func _integrate_forces(state):
 #	var xform = state.get_transform()
