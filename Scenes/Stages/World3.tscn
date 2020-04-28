@@ -31,7 +31,6 @@ position = Vector2( -165.986, 972.79 )
 tile_data = PoolIntArray( -65510, 5, 0, -65509, 4, 0, -65508, 4, 0, -65507, 4, 0, -65506, 4, 0, -65505, 4, 0, -65504, 4, 0, -65503, 4, 0, -65502, 4, 0, -65501, 4, 0, -65500, 4, 0, -65499, 6, 0 )
 
 [node name="caveBackground" type="TileMap" parent="Map"]
-visible = false
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
 format = 1

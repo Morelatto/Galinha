@@ -26,7 +26,9 @@ func _physics_process(delta):
 		respawn()
 
 func respawn():
-	global_transform.origin = checkpoint.position
+	#32 is the size of the chicken.
+	var respawn_pos = Vector2(checkpoint.position.x, checkpoint.position.y - 32)
+	global_transform.origin = respawn_pos
 	rotation = 0
 	is_in_respawn = false
 
