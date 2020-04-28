@@ -1,7 +1,7 @@
 extends Node2D
 
-var scroll_speed_text = 80
-var scroll_speed_background = 50
+var scroll_speed_text = 40
+var scroll_speed_background = 70
 var buttons_speed = 150
 
 onready var buttons = get_parent().find_node("Buttons")

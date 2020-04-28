@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Controllers/Title_Controller.gd" type="Script" id=1]
 [ext_resource path="res://Backgrounds/transition.png" type="Texture" id=2]
 [ext_resource path="res://Backgrounds/dramaChicken.png" type="Texture" id=3]
 [ext_resource path="res://Backgrounds/nightSky.png" type="Texture" id=4]
 [ext_resource path="res://Backgrounds/CloudsFront.png" type="Texture" id=5]
-[ext_resource path="res://Backgrounds/button.png" type="Texture" id=6]
+[ext_resource path="res://Backgrounds/buttons.png" type="Texture" id=6]
 [ext_resource path="res://Backgrounds/title.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/Stages/TitleButtons.gd" type="Script" id=8]
 
 [node name="World" type="Node2D"]
 
@@ -41,7 +42,7 @@ position = Vector2( 912, 200 )
 texture = ExtResource( 3 )
 
 [node name="Story" type="Node2D" parent="."]
-position = Vector2( 0, 400 )
+position = Vector2( 0, 600 )
 
 [node name="StoryLabel" type="RichTextLabel" parent="Story"]
 margin_right = 600.0
@@ -84,34 +85,33 @@ __meta__ = {
 
 [node name="Buttons" type="Node2D" parent="."]
 position = Vector2( -128, 0 )
+script = ExtResource( 8 )
 
-[node name="QuitButton" type="Sprite" parent="Buttons"]
-position = Vector2( 0, 344 )
-scale = Vector2( 2.5, 2.5 )
+[node name="buttons" type="Sprite" parent="Buttons"]
+position = Vector2( 3.05176e-05, 280 )
+scale = Vector2( 2.5, 1.8945 )
 texture = ExtResource( 6 )
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Buttons/QuitButton"]
-margin_left = -24.0
-margin_top = -5.0
-margin_right = 51.0
-margin_bottom = 13.0
-bbcode_enabled = true
-bbcode_text = "[font=Resources/8bitDynamic.tres]Quit[/font]"
-text = "Quit"
+[node name="Play" type="Button" parent="Buttons/buttons"]
+anchor_left = 0.047
+anchor_top = 0.229
+anchor_right = 1.0
+anchor_bottom = 0.539
+margin_left = -32.008
+margin_top = -54.961
+margin_right = -32.0
+margin_bottom = -54.751
+flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PlayButton" type="Sprite" parent="Buttons"]
-position = Vector2( 0, 248 )
-scale = Vector2( 2.5, 2.5 )
-texture = ExtResource( 6 )
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Buttons/PlayButton"]
-margin_left = -24.0
-margin_top = -5.0
-margin_right = 51.0
-margin_bottom = 13.0
+[node name="PlayLabel" type="RichTextLabel" parent="Buttons/buttons/Play"]
+margin_left = 6.59998
+margin_top = 13.109
+margin_right = 81.6
+margin_bottom = 31.109
+mouse_filter = 2
 bbcode_enabled = true
 bbcode_text = "[font=Resources/8bitDynamic.tres]Play[/font]"
 text = "Play"
@@ -119,28 +119,42 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Buttons"]
-margin_left = -72.0
-margin_top = 48.0
-margin_right = 64.0
-margin_bottom = 88.0
+[node name="Quit" type="Button" parent="Buttons/buttons"]
+anchor_left = 0.047
+anchor_top = 0.577
+anchor_right = 1.0
+anchor_bottom = 0.926
+margin_left = -32.008
+margin_top = -49.893
+margin_right = -35.0
+margin_bottom = -53.934
+shortcut_in_tooltip = false
+action_mode = 0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuitLabel" type="RichTextLabel" parent="Buttons/buttons/Quit"]
+margin_left = 6.59998
+margin_top = 8.11377
+margin_right = 81.6
+margin_bottom = 26.1138
+mouse_filter = 2
 bbcode_enabled = true
-bbcode_text = "[center][font=Resources/8bitDynamic.tres]Titulo[/font]
-"
-text = "Titulo
-"
+bbcode_text = "[font=Resources/8bitDynamic.tres]Quit[/font]"
+text = "Quit"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="SkipText" type="Node2D" parent="."]
+position = Vector2( 480, 550 )
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="SkipText"]
 modulate = Color( 1, 1, 1, 0.505882 )
-margin_left = 464.0
-margin_top = 376.0
-margin_right = 608.0
-margin_bottom = 392.0
+margin_right = 144.0
+margin_bottom = 16.0
 bbcode_enabled = true
 bbcode_text = "[center][font=Resources/8bitDynamic.tres]Skip (Esc)[/font]
 "
@@ -149,3 +163,5 @@ text = "Skip (Esc)
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="pressed" from="Buttons/buttons/Play" to="Buttons" method="_on_Play_pressed"]
+[connection signal="pressed" from="Buttons/buttons/Quit" to="Buttons" method="_on_Quit_pressed"]

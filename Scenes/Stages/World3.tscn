@@ -8,10 +8,10 @@
 [ext_resource path="res://Scenes/RopeTileMap.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Entities/Spike.tscn" type="PackedScene" id=8]
 
-[sub_resource type="PhysicsMaterial" id=2]
+[sub_resource type="PhysicsMaterial" id=1]
 friction = 0.1
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 8.08185, 51.4798 )
 
 [node name="World" type="Node2D"]
@@ -100,13 +100,13 @@ __meta__ = {
 
 [node name="RigidBody2D" type="RigidBody2D" parent="Entities/Barrier"]
 mass = 20.0
-physics_material_override = SubResource( 2 )
+physics_material_override = SubResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Entities/Barrier/RigidBody2D"]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Entities/Barrier/RigidBody2D"]
 position = Vector2( 0.0515866, -0.103209 )
