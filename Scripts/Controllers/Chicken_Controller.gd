@@ -1,27 +1,19 @@
 extends RigidBody2D
 
-const flying_speed = 5
+const FLYING_SPEED = 5
+const MIN_KICK_VELOCITY = 3
 
 onready var particles = get_parent().find_node("Particles")
 
-var screen_size
-var screen_buffer = 4 # how far the chicken can move off screen before it reappears on the other side
+var can_kick = true
 
 func apply_force(direction):
-	apply_central_impulse(direction * flying_speed)
-
-func _ready():
-	screen_size = get_viewport_rect().size
+	apply_central_impulse(direction * FLYING_SPEED)
 
 func emit_feathers(direction):
 	particles.position = position
 	particles.rotation = direction.angle()
 	particles.emitting = true
 
-#func _integrate_forces(state):
-#	var xform = state.get_transform()
-#	if xform.origin.x > screen_size.x:
-#		xform.origin.x = 0
-#	if xform.origin.x < 0:
-#		xform.origin.x = screen_size.x
-#	state.set_transform(xform)
+func _process(delta):
+	can_kick = linear_velocity.length() < MIN_KICK_VELOCITY

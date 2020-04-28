@@ -3,7 +3,6 @@
 extends Node2D
 
 var draw_line = false
-var can_kick = true
 var on_limit_kick = false
 
 var initial_mouse_pos = Vector2()
@@ -11,16 +10,13 @@ var final_mouse_pos = Vector2()
 
 #Configuration
 export var kick_speed = 10
-var kick_polygon_color = Color(0.058, 0.735, 0)
 
 #Load nodes
 onready var chicken = get_parent().find_node("Chicken")
-onready var camera = get_parent().find_node("Camera")
 
 onready var boot_sprite = $BootSprite
 onready var ghost_sprite = $GhostAnimatedSprite
 
-const MIN_KICK_VELOCITY = 5
 const MIN_GHOST_DISTANCE = 8
 const MAX_LINE_DISTANCE = 200
 const KICK_POLYGON_COLOR_GREEN = Color(0.058, 0.735, 0, 0.5)
@@ -37,6 +33,7 @@ var state = GHOST_STATE.in_free_mode
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
+# using _process instead of _physics_process to ensure animation is smooth with mouse movement
 func _process(delta):
 	if state == GHOST_STATE.in_kick_animation:
 		_calculate_kick_animation(delta)
@@ -94,7 +91,7 @@ func change_state(new_state):
 
 func _input(event):
 	# prevent kicking in the air
-	if chicken.linear_velocity.length() < MIN_KICK_VELOCITY:
+	if chicken.can_kick:
 		# left click press
 		if event.is_action_pressed("ui_mouse_action"):
 			set_global_position(chicken.position)
@@ -103,7 +100,7 @@ func _input(event):
 			draw_line = true
 
 		# left click release
-		if event.is_action_released("ui_mouse_action") and draw_line:
+		if event.is_action_released("ui_mouse_action"):
 			final_mouse_pos = get_global_mouse_position()
 			change_state(GHOST_STATE.in_kick_animation)
 			draw_line = false
@@ -113,17 +110,17 @@ func _draw():
 	if draw_line:
 		var distance_to_chicken =  initial_mouse_pos - get_global_mouse_position()
 		if distance_to_chicken.length() < MAX_LINE_DISTANCE:
-			kick_polygon_color = KICK_POLYGON_COLOR_GREEN
 			on_limit_kick = false
 		else:
-			kick_polygon_color = KICK_POLYGON_COLOR_RED
 			on_limit_kick = true
-		var polygons = PoolVector2Array()
-		polygons.append(Vector2(5, -21))
-		polygons.append(Vector2(1, 15))
-		polygons.append(to_local(chicken.position))
-		draw_colored_polygon(polygons, kick_polygon_color)
+		draw_kick_indicator(KICK_POLYGON_COLOR_RED if on_limit_kick else KICK_POLYGON_COLOR_GREEN)
 
+func draw_kick_indicator(color):
+	var polygons = PoolVector2Array()
+	polygons.append(Vector2(5, -21))
+	polygons.append(Vector2(1, 15))
+	polygons.append(to_local(chicken.position))
+	draw_colored_polygon(polygons, color)
 
 func reset_kick():
 	draw_line = false

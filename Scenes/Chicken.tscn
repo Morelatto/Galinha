@@ -64,7 +64,7 @@ polygon = PoolVector2Array( -12.1884, -2.5145, -11.1989, 3.62075, -9.0609, 6.753
 motion_mirroring = Vector2( 0, 0.1 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-scale = Vector2( 1.172, 1.24993 )
+scale = Vector2( 1.172, 1.87513 )
 texture = ExtResource( 3 )
 centered = false
 
@@ -72,6 +72,6 @@ centered = false
 motion_mirroring = Vector2( 0, 0.1 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
-scale = Vector2( 1.172, 1.25 )
+scale = Vector2( 1.172, 1.875 )
 texture = ExtResource( 4 )
 centered = false
