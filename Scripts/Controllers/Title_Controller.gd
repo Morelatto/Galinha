@@ -43,9 +43,9 @@ func _input(event):
 		animating_buttons = true
 
 func animate_buttons(delta):
-	buttons.position.x += buttons_speed * delta
-	if buttons.position.x > resolution.x / 2:
-		buttons.position.x = resolution.x / 2
+	buttons.position.y -= buttons_speed * delta
+	if buttons.position.y < resolution.y / 2:
+		buttons.position.y = resolution.y / 2
 		animating_buttons = false
 
 func animate_text(delta):

@@ -40,4 +40,7 @@ func _on_Chicken_body_entered(body):
 	if body.get_parent() is Spike:
 		sleeping = true
 		is_in_respawn = true
+	if body.get_parent() is SpringMushroom:
+		var impulse = body.get_parent().get_force(position)
+		apply_central_impulse(impulse)
 	pass

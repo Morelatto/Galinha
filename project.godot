@@ -17,11 +17,17 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "Spike",
 "language": "GDScript",
-"path": "res://Scenes/Entities/Spike.gd"
+"path": "res://Scripts/Spike.gd"
+}, {
+"base": "Node2D",
+"class": "SpringMushroom",
+"language": "GDScript",
+"path": "res://Scripts/SpringMushroom.gd"
 } ]
 _global_script_class_icons={
 "Checkpoint": "",
-"Spike": ""
+"Spike": "",
+"SpringMushroom": ""
 }
 
 [application]
