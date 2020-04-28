@@ -23,8 +23,8 @@ onready var ghost_sprite = $GhostAnimatedSprite
 const MIN_KICK_VELOCITY = 5
 const MIN_GHOST_DISTANCE = 8
 const MAX_LINE_DISTANCE = 200
-const KICK_POLYGON_COLOR_GREEN = Color(0.058, 0.735, 0)
-const KICK_POLYGON_COLOR_RED = Color(0.735, 0.058, 0)
+const KICK_POLYGON_COLOR_GREEN = Color(0.058, 0.735, 0, 0.5)
+const KICK_POLYGON_COLOR_RED = Color(0.735, 0.058, 0, 0.5)
 
 enum GHOST_STATE {
 	in_kick_animation
