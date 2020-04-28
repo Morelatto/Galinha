@@ -1,6 +1,6 @@
 extends Node2D
 
-var scroll_speed_text = 30
+var scroll_speed_text = 80
 var scroll_speed_background = 50
 var buttons_speed = 150
 
@@ -18,6 +18,12 @@ func _ready():
 	var width = ProjectSettings.get_setting("display/window/size/width")
 	var height = ProjectSettings.get_setting("display/window/size/height")
 	resolution = Vector2(width, height)
+	for i in range(3):
+		var sprite = get_child(i)
+		var scalex = width / sprite.texture.get_size().x
+		var scaley = height / sprite.texture.get_size().y
+		sprite.position.y = (i * height)
+		sprite.set_scale(Vector2(scalex,scaley))
 
 func _process(delta):
 	if animating_text:

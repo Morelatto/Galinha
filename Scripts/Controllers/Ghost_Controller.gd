@@ -8,6 +8,13 @@ var on_limit_kick = false
 var initial_mouse_pos = Vector2()
 var final_mouse_pos = Vector2()
 
+#this was created because sometimes you can click the mouse
+#when its not in a available kick state, so it does not
+#capture the mouse position, BUT if you release the mouse
+#in a available state it will kick based on the last available
+#position.
+var mouse_pressed_in_available_state = false
+
 #Configuration
 export var kick_speed = 10
 
@@ -58,6 +65,9 @@ func _calculate_kick_animation(delta):
 		reset_kick()
 
 func _calculate_prepare_for_kick():
+	if !chicken.can_kick:
+		return
+	
 	look_at(chicken.position)
 	var mouse_position = get_global_mouse_position()
 	var mouse_direction = initial_mouse_pos - mouse_position
@@ -98,12 +108,14 @@ func _input(event):
 			initial_mouse_pos = get_global_mouse_position()
 			change_state(GHOST_STATE.in_preparing_for_kick)
 			draw_line = true
+			mouse_pressed_in_available_state = true
 
 		# left click release
-		if event.is_action_released("ui_mouse_action"):
+		if mouse_pressed_in_available_state and event.is_action_released("ui_mouse_action"):
 			final_mouse_pos = get_global_mouse_position()
 			change_state(GHOST_STATE.in_kick_animation)
 			draw_line = false
+			mouse_pressed_in_available_state = false
 
 
 func _draw():

@@ -1,7 +1,7 @@
 extends TileMap
 
 const ROPE_TILE_NAME = "Rope"
-const ROPE = preload("res://Scenes/Rope.tscn")
+const ROPE = preload("res://Scenes/Entities/Rope.tscn")
 
 
 func _ready():

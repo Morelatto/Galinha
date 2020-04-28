@@ -8,21 +8,31 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Position2D",
+"class": "Checkpoint",
+"language": "GDScript",
+"path": "res://Scripts/Checkpoint.gd"
+}, {
+"base": "Node2D",
+"class": "Spike",
+"language": "GDScript",
+"path": "res://Scenes/Entities/Spike.gd"
+} ]
 _global_script_class_icons={
-
+"Checkpoint": "",
+"Spike": ""
 }
 
 [application]
 
 config/name="Galinha"
-run/main_scene="res://Scenes/World.tscn"
+run/main_scene="res://Scenes/Stages/World.tscn"
 config/icon="res://icon.png"
 
 [display]
 
 window/size/width=600
-window/size/resizable=false
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 

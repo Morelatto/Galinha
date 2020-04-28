@@ -44,5 +44,5 @@ texture = ExtResource( 1 )
 z_index = 10
 frames = SubResource( 5 )
 animation = "idle"
-frame = 1
+frame = 3
 playing = true

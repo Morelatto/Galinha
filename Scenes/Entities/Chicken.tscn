@@ -37,6 +37,8 @@ collision_layer = 3
 collision_mask = 3
 mass = 2.04082
 physics_material_override = SubResource( 1 )
+contacts_reported = 5
+contact_monitor = true
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -75,3 +77,4 @@ motion_mirroring = Vector2( 0, 0.1 )
 scale = Vector2( 1.172, 1.875 )
 texture = ExtResource( 4 )
 centered = false
+[connection signal="body_entered" from="." to="." method="_on_Chicken_body_entered"]
