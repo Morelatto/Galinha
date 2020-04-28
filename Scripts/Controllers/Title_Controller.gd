@@ -8,9 +8,16 @@ onready var buttons = get_parent().find_node("Buttons")
 onready var skip_button = get_parent().find_node("SkipText")
 onready var text = get_parent().find_node("Story")
 
+var resolution = Vector2()
+
 var animating_text = true
 var animating_background = false
 var animating_buttons = false
+
+func _ready():
+	var width = ProjectSettings.get_setting("display/window/size/width")
+	var height = ProjectSettings.get_setting("display/window/size/height")
+	resolution = Vector2(width, height)
 
 func _process(delta):
 	if animating_text:
@@ -22,8 +29,8 @@ func _process(delta):
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
-		position.y = -get_viewport().size.y * 2
-		text.position.y = -get_viewport().size.y
+		position.y = -resolution.y * 2
+		text.position.y = -resolution.y
 		skip_button.hide()
 		animating_text = false
 		animating_background = false
@@ -31,20 +38,20 @@ func _input(event):
 
 func animate_buttons(delta):
 	buttons.position.x += buttons_speed * delta
-	if buttons.position.x > get_viewport().size.x / 2:
-		buttons.position.x = get_viewport().size.x / 2
+	if buttons.position.x > resolution.x / 2:
+		buttons.position.x = resolution.x / 2
 		animating_buttons = false
 
 func animate_text(delta):
 	text.position.y -= scroll_speed_text * delta
-	if text.position.y < -get_viewport().size.y / 1.8:
+	if text.position.y < -resolution.y / 1.8:
 		animating_text = false
 		animating_background = true
 
 func animate_background(delta):
 	position.y -= scroll_speed_background * delta
-	if position.y < -get_viewport().size.y * 2:
-		position.y = -get_viewport().size.y * 2
+	if position.y < -resolution.y * 2:
+		position.y = -resolution.y * 2
 		skip_button.hide()
 		animating_background = false
 		animating_buttons = true
