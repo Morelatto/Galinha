@@ -49,15 +49,15 @@ position = Vector2( -0.103531, -5.38345 )
 z_index = 6
 frames = SubResource( 6 )
 animation = "Idle"
-frame = 3
 playing = true
 
 [node name="Camera" type="Camera2D" parent="."]
-position = Vector2( 0, 5.2048 )
+position = Vector2( -2.58472, -1.29236 )
+offset = Vector2( 0, -125 )
 current = true
 limit_left = 0
 limit_right = 600
-limit_bottom = 400
+limit_bottom = 525
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( -12.1884, -2.5145, -11.1989, 3.62075, -9.0609, 6.75355, -6.11971, 8.78977, -2.27353, 9.80787, 6.94598, 9.69475, 10.9618, 6.81012, 12.9981, 2.62457, 12.9415, -3.54062, 13.7899, -5.40715, 14.0018, -8.25393, 11.9567, -10.299, 13.0782, -12.0142, 12.8144, -15.2468, 10.9012, -17.4238, 7.53672, -17.4238, 6.48724, -15.366, 1.99111, -15.3384, 0.939671, -14.3232, -0.10524, -12.3042, -0.0776577, -6.37371, -9.11746, -6.25557, -10.1356, -8.46147, -11.9905, -8.38587 )
