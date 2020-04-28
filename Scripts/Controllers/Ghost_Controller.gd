@@ -2,7 +2,7 @@
 #since the player actually controls the ghost, not the chicken.
 extends Node2D
 
-var drawLine = false
+var draw_line = false
 var can_kick = true
 var on_limit_kick = false
 
@@ -100,17 +100,17 @@ func _input(event):
 			set_global_position(chicken.position)
 			initial_mouse_pos = get_global_mouse_position()
 			change_state(GHOST_STATE.in_preparing_for_kick)
-			drawLine = true
+			draw_line = true
 
 		# left click release
-		if event.is_action_released("ui_mouse_action") and drawLine:
+		if event.is_action_released("ui_mouse_action") and draw_line:
 			final_mouse_pos = get_global_mouse_position()
 			change_state(GHOST_STATE.in_kick_animation)
-			drawLine = false
+			draw_line = false
 
 
 func _draw():
-	if drawLine:
+	if draw_line:
 		var distance_to_chicken =  initial_mouse_pos - get_global_mouse_position()
 		if distance_to_chicken.length() < MAX_LINE_DISTANCE:
 			kick_polygon_color = KICK_POLYGON_COLOR_GREEN
@@ -123,11 +123,9 @@ func _draw():
 		polygons.append(Vector2(1, 15))
 		polygons.append(to_local(chicken.position))
 		draw_colored_polygon(polygons, kick_polygon_color)
-		#else:
 
-			#reset_kick()
 
 func reset_kick():
-	drawLine = false
+	draw_line = false
 	change_state(GHOST_STATE.in_free_mode)
-	rotation = 0
+

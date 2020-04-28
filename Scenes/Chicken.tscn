@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Sprites/chicken_sheet.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Controllers/Chicken_Controller.gd" type="Script" id=2]
+[ext_resource path="res://Backgrounds/CloudsBack.png" type="Texture" id=3]
+[ext_resource path="res://Backgrounds/CloudsFront.png" type="Texture" id=4]
 
 [sub_resource type="PhysicsMaterial" id=1]
 bounce = 0.3
@@ -55,3 +57,21 @@ limit_bottom = 400
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( -12.1884, -2.5145, -11.1989, 3.62075, -9.0609, 6.75355, -6.11971, 8.78977, -2.27353, 9.80787, 6.94598, 9.69475, 10.9618, 6.81012, 12.9981, 2.62457, 12.9415, -3.54062, 13.7899, -5.40715, 14.0018, -8.25393, 11.9567, -10.299, 13.0782, -12.0142, 12.8144, -15.2468, 10.9012, -17.4238, 7.53672, -17.4238, 6.48724, -15.366, 1.99111, -15.3384, 0.939671, -14.3232, -0.10524, -12.3042, -0.0776577, -6.37371, -9.11746, -6.25557, -10.1356, -8.46147, -11.9905, -8.38587 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 0, 0.1 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+scale = Vector2( 1.172, 1.24993 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 0, 0.1 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+scale = Vector2( 1.172, 1.25 )
+texture = ExtResource( 4 )
+centered = false
