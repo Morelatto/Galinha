@@ -16,7 +16,7 @@ var final_mouse_pos = Vector2()
 var mouse_pressed_in_available_state = false
 
 #Configuration
-export var kick_speed = 10
+export var kick_speed = 7
 
 #Load nodes
 onready var chicken = get_parent().find_node("Chicken")
@@ -67,7 +67,7 @@ func _calculate_kick_animation(delta):
 func _calculate_prepare_for_kick():
 	if !chicken.can_kick:
 		return
-	
+
 	look_at(chicken.position)
 	var mouse_position = get_global_mouse_position()
 	var mouse_direction = initial_mouse_pos - mouse_position
@@ -86,7 +86,6 @@ func change_state(new_state):
 	state = new_state
 	match new_state:
 		GHOST_STATE.in_free_mode:
-			rotation = 0
 			boot_sprite.hide()
 			ghost_sprite.show()
 
@@ -136,5 +135,6 @@ func draw_kick_indicator(color):
 
 func reset_kick():
 	draw_line = false
+	rotation = 0
 	change_state(GHOST_STATE.in_free_mode)
 
