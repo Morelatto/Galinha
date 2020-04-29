@@ -1,0 +1,301 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Scripts/TitleScreen.gd" type="Script" id=1]
+[ext_resource path="res://Backgrounds/transition.png" type="Texture" id=2]
+[ext_resource path="res://Resources/8bitdynamic.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Backgrounds/nightSky.png" type="Texture" id=4]
+[ext_resource path="res://Backgrounds/CloudsFront.png" type="Texture" id=5]
+[ext_resource path="res://Backgrounds/buttons.png" type="Texture" id=6]
+[ext_resource path="res://Backgrounds/title.png" type="Texture" id=7]
+[ext_resource path="res://Resources/8bitfont.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://Scenes/Stages/World2.tscn" type="PackedScene" id=9]
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_top = 2
+extra_spacing_bottom = 2
+font_data = ExtResource( 8 )
+
+[sub_resource type="Animation" id=1]
+resource_name = "StoryScroll"
+length = 11.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("StoryLabel:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 600 ), Vector2( 0, -420 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Backgrounds/BlueSky:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 5, 10 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 600 ), Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Backgrounds/Mountains:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 5, 10 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 600 ), Vector2( 0, 100 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Backgrounds/Clouds:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 5, 10 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 300, 900 ), Vector2( 300, 425 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("AnimationPlayer:playback_speed")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 2,
+"values": [ 0.3, 0.9 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("SkipText:custom_colors/font_color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.7, 1.4, 2.1, 2.8, 3.5, 4.2, 4.9, 5.6, 6.3, 7, 7.7, 8.4, 9.1, 10 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Buttons:rect_position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 10, 11 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 260, 600 ), Vector2( 260, 300 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Title:rect_position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 10, 11 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 600 ), Vector2( 0, 45 ) ]
+}
+
+[node name="TitleScreen" type="Control"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+world = ExtResource( 9 )
+
+[node name="Backgrounds" type="Control" parent="."]
+margin_right = 600.0
+margin_bottom = 600.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NightSky" type="Sprite" parent="Backgrounds"]
+scale = Vector2( 1, 1.5 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="BlueSky" type="Sprite" parent="Backgrounds"]
+position = Vector2( 0, 600 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Mountains" type="Sprite" parent="Backgrounds"]
+position = Vector2( 0, 600 )
+texture = ExtResource( 7 )
+centered = false
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Clouds" type="Sprite" parent="Backgrounds"]
+position = Vector2( 300, 900 )
+scale = Vector2( 1.17188, 1.15795 )
+texture = ExtResource( 5 )
+
+[node name="StoryLabel" type="RichTextLabel" parent="."]
+margin_top = 600.0
+margin_right = 600.0
+margin_bottom = 1200.0
+bbcode_enabled = true
+bbcode_text = "[center][color=yellow][font=Resources/8bitDynamic.tres]
+Farmers
+They collect eggs from the poor chicken
+Enslave them
+Force them to work without pay
+
+
+A ghost from the past
+Seeks revenge from the farmer
+
+
+While a fearless chicken 
+Tries to save his family
+From the hands of the greedy farmer
+
+
+Chicken and spirit 
+Unite to free their own kind 
+From the hands of an evil farmer
+
+That lives in the top of a mountain.
+[/font][/color][/center]"
+text = "
+Farmers
+They collect eggs from the poor chicken
+Enslave them
+Force them to work without pay
+
+
+A ghost from the past
+Seeks revenge from the farmer
+
+
+While a fearless chicken 
+Tries to save his family
+From the hands of the greedy farmer
+
+
+Chicken and spirit 
+Unite to free their own kind 
+From the hands of an evil farmer
+
+That lives in the top of a mountain.
+"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="."]
+margin_top = 600.0
+margin_right = 600.0
+margin_bottom = 777.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.980392, 0.694118, 0.0823529, 1 )
+text = "The Fearless Chicken 
+Who Climbs A Mountain 
+Seeking Revenge 
+With His Ghost Partner
+Against An Evil Farmer"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SkipText" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0.505882 )
+margin_top = 576.29
+margin_right = 590.0
+margin_bottom = 617.29
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Skip (Esc)
+"
+align = 2
+percent_visible = -0.1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buttons" type="Control" parent="."]
+margin_left = 260.0
+margin_top = 600.0
+margin_right = 360.0
+margin_bottom = 765.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Buttons"]
+margin_right = 64.0
+margin_bottom = 109.0
+rect_scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Buttons/TextureRect"]
+margin_left = -5.0
+margin_top = 28.0
+margin_right = 71.0
+margin_bottom = 82.0
+rect_scale = Vector2( 1, 1.30814 )
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Play" type="Button" parent="Buttons/TextureRect/VBoxContainer"]
+margin_right = 76.0
+margin_bottom = 25.0
+custom_fonts/font = ExtResource( 3 )
+text = "PLAY"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit" type="Button" parent="Buttons/TextureRect/VBoxContainer"]
+margin_top = 29.0
+margin_right = 76.0
+margin_bottom = 54.0
+custom_fonts/font = ExtResource( 3 )
+shortcut_in_tooltip = false
+action_mode = 0
+text = "QUIT"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+playback_speed = 0.3
+anims/StoryScroll = SubResource( 1 )
+[connection signal="pressed" from="Buttons/TextureRect/VBoxContainer/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="Buttons/TextureRect/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
