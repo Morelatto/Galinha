@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/TitleScreen.gd" type="Script" id=1]
 [ext_resource path="res://Backgrounds/transition.png" type="Texture" id=2]
@@ -17,6 +17,8 @@ outline_color = Color( 0, 0, 0, 1 )
 extra_spacing_top = 2
 extra_spacing_bottom = 2
 font_data = ExtResource( 8 )
+
+[sub_resource type="StyleBoxEmpty" id=3]
 
 [sub_resource type="Animation" id=2]
 length = 11.0
@@ -81,36 +83,24 @@ tracks/4/keys = {
 "values": [ 0.3, 0.9 ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("SkipText:custom_colors/font_color")
+tracks/5/path = NodePath("Buttons:rect_position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 0.7, 1.4, 2.1, 2.8, 3.5, 4.2, 4.9, 5.6, 6.3, 7, 7.7, 8.4, 9.1, 10 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath("Buttons:rect_position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
 "times": PoolRealArray( 10, 11 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 260, 600 ), Vector2( 260, 300 ) ]
 }
-tracks/7/type = "value"
-tracks/7/path = NodePath("Title:rect_position")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
+tracks/6/type = "value"
+tracks/6/path = NodePath("Title:rect_position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
 "times": PoolRealArray( 10, 11 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
@@ -224,20 +214,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SkipText" type="Label" parent="."]
-modulate = Color( 1, 1, 1, 0.505882 )
-margin_top = 576.29
+[node name="SkipButton" type="Button" parent="."]
+margin_top = 560.0
 margin_right = 590.0
-margin_bottom = 617.29
-size_flags_vertical = 1
+margin_bottom = 601.0
+custom_styles/focus = SubResource( 3 )
 custom_fonts/font = ExtResource( 3 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Skip (Esc)
 "
+flat = true
 align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Tween" type="Tween" parent="SkipButton"]
+repeat = true
+playback/repeat = true
 
 [node name="Buttons" type="Control" parent="."]
 margin_left = 260.0
@@ -295,5 +288,7 @@ __meta__ = {
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 0.3
 anims/StoryScroll = SubResource( 2 )
+[connection signal="pressed" from="SkipButton" to="." method="_on_SkipText_pressed"]
 [connection signal="pressed" from="Buttons/TextureRect/VBoxContainer/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="Buttons/TextureRect/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
