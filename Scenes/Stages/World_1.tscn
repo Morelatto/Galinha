@@ -15,7 +15,6 @@ extents = Vector2( 8.08185, 51.4798 )
 [node name="World" type="Node2D"]
 
 [node name="Map" type="Node2D" parent="."]
-position = Vector2( 0, 8 )
 
 [node name="caveBackground" type="TileMap" parent="Map"]
 tile_set = ExtResource( 2 )
@@ -89,4 +88,4 @@ position = Vector2( 8, 0 )
 position = Vector2( 456, 104 )
 
 [node name="LevelBottom" type="Position2D" parent="."]
-position = Vector2( 0, 424 )
+position = Vector2( 0, 408 )

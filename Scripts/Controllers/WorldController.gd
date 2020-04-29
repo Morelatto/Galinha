@@ -15,6 +15,9 @@ func _ready():
 	pass
 	
 func load_next_world():
+	if world_index > number_of_worlds - 1:
+		#load last level
+		return
 	var world = world_list[world_index].instance()
 	world_index += 1
 	if loaded_worlds.size() >= 1:

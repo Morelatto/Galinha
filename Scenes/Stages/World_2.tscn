@@ -8,8 +8,7 @@
 [node name="Map" type="Node2D" parent="."]
 
 [node name="RopeTileMap" parent="Map" instance=ExtResource( 2 )]
-position = Vector2( 448, 448 )
-tile_data = PoolIntArray( -327679, 5, 0, -327678, 4, 0, -327677, 4, 0, -327676, 4, 0, -327675, 4, 0, -327674, 4, 0, -327673, 4, 0, -327672, 4, 0, -327671, 4, 0, -327670, 6, 0 )
+tile_data = PoolIntArray( 1507357, 5, 0, 1507358, 4, 0, 1507359, 4, 0, 1507360, 4, 0, 1507361, 4, 0, 1507362, 4, 0, 1507363, 4, 0, 1507364, 4, 0, 1507365, 4, 0, 1507366, 6, 0 )
 
 [node name="TileMap" type="TileMap" parent="Map"]
 tile_set = ExtResource( 1 )
