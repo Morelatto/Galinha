@@ -2,11 +2,15 @@ extends RigidBody2D
 
 const FLYING_SPEED = 5
 const MIN_KICK_VELOCITY = 3
+const FALLING_VELOCITY_THRESHOLD = 50
+const MAX_FALLING_SPEED = 100
 
 onready var checkpoint = Checkpoint.new()
 onready var particles = get_parent().find_node("Particles")
+onready var animation = get_node("AnimatedSprite")
 
 var can_kick = true
+var is_falling = false
 
 var is_in_respawn = false
 
@@ -34,6 +38,14 @@ func respawn():
 
 func _process(delta):
 	can_kick = linear_velocity.length() < MIN_KICK_VELOCITY
+	is_falling = linear_velocity.y > FALLING_VELOCITY_THRESHOLD
+	var state = "Idle"
+	if is_falling:
+		state = "Falling"
+		if linear_velocity.y > MAX_FALLING_SPEED:
+			linear_velocity.y = MAX_FALLING_SPEED
+	if animation.get_animation() != state:
+		animation.set_animation(state)
 
 
 func _on_Chicken_body_entered(body):
