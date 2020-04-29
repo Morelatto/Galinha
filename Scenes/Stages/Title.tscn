@@ -104,10 +104,10 @@ __meta__ = {
 }
 
 [node name="PlayLabel" type="RichTextLabel" parent="Buttons/buttons/Play"]
-margin_left = 6.59998
-margin_top = 13.109
-margin_right = 81.6
-margin_bottom = 31.109
+margin_left = 0.200005
+margin_top = 9.41409
+margin_right = 75.2
+margin_bottom = 35.4141
 mouse_filter = 2
 bbcode_enabled = true
 bbcode_text = "[font=Resources/8bitDynamic.tres]Play[/font]"
@@ -133,10 +133,10 @@ __meta__ = {
 }
 
 [node name="QuitLabel" type="RichTextLabel" parent="Buttons/buttons/Quit"]
-margin_left = 6.59998
-margin_top = 8.11377
-margin_right = 81.6
-margin_bottom = 26.1138
+margin_left = 2.30979
+margin_top = 5.85748
+margin_right = 77.3098
+margin_bottom = 27.8575
 mouse_filter = 2
 bbcode_enabled = true
 bbcode_text = "[font=Resources/8bitDynamic.tres]Quit[/font]"
