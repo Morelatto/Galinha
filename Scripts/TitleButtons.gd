@@ -1,4 +1,4 @@
-extends Buttons
+extends Node2D
 
 export (PackedScene) var world
 

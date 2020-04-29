@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Controllers/Title_Controller.gd" type="Script" id=1]
 [ext_resource path="res://Backgrounds/transition.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Stages/World.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Backgrounds/nightSky.png" type="Texture" id=4]
 [ext_resource path="res://Backgrounds/CloudsFront.png" type="Texture" id=5]
 [ext_resource path="res://Backgrounds/buttons.png" type="Texture" id=6]
@@ -81,6 +82,7 @@ __meta__ = {
 [node name="Buttons" type="Node2D" parent="."]
 position = Vector2( 304, 624 )
 script = ExtResource( 8 )
+world = ExtResource( 3 )
 
 [node name="buttons" type="Sprite" parent="Buttons"]
 position = Vector2( 0, 135 )

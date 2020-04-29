@@ -10,7 +10,7 @@
 [ext_resource path="res://Resources/8bitfont.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://Scenes/Stages/World2.tscn" type="PackedScene" id=9]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 40
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
@@ -18,8 +18,7 @@ extra_spacing_top = 2
 extra_spacing_bottom = 2
 font_data = ExtResource( 8 )
 
-[sub_resource type="Animation" id=1]
-resource_name = "StoryScroll"
+[sub_resource type="Animation" id=2]
 length = 11.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("StoryLabel:rect_position")
@@ -213,7 +212,7 @@ __meta__ = {
 margin_top = 600.0
 margin_right = 600.0
 margin_bottom = 777.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.980392, 0.694118, 0.0823529, 1 )
 text = "The Fearless Chicken 
 Who Climbs A Mountain 
@@ -236,7 +235,6 @@ custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Skip (Esc)
 "
 align = 2
-percent_visible = -0.1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -296,6 +294,6 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 0.3
-anims/StoryScroll = SubResource( 1 )
+anims/StoryScroll = SubResource( 2 )
 [connection signal="pressed" from="Buttons/TextureRect/VBoxContainer/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="Buttons/TextureRect/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
