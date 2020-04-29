@@ -13,7 +13,7 @@ func _ready():
 	load_next_world()
 	load_next_world()
 	pass
-	
+
 func load_next_world():
 	if world_index > number_of_worlds - 1:
 		#load last level
@@ -26,17 +26,17 @@ func load_next_world():
 		world.position.y = last_world.position.y - bottom_of_map.position.y
 	else:
 		world.position.y = -world.get_node("LevelBottom").position.y
-	
+
 	loaded_worlds.push_back(world)
 	add_child(world)
-	
+
 	if loaded_worlds.size() > 3:
 		var deleteWorld = loaded_worlds[0]
 		remove_child(deleteWorld)
-		
+
 		loaded_worlds.pop_front()
 		call_deferred("free")
-		
+
 
 
 func load_world_list():

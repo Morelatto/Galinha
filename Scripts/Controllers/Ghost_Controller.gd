@@ -23,6 +23,7 @@ onready var chicken = get_parent().find_node("Chicken")
 
 onready var boot_sprite = $BootSprite
 onready var ghost_sprite = $GhostAnimatedSprite
+onready var animation = $AnimationPlayer
 
 const MIN_GHOST_DISTANCE = 8
 const MAX_LINE_DISTANCE = 200
@@ -86,16 +87,10 @@ func change_state(new_state):
 	state = new_state
 	match new_state:
 		GHOST_STATE.in_free_mode:
-			boot_sprite.hide()
-			ghost_sprite.show()
-
-		GHOST_STATE.in_kick_animation:
-			boot_sprite.show()
-			ghost_sprite.hide()
+			animation.play("in_free_mode")
 
 		GHOST_STATE.in_preparing_for_kick:
-			boot_sprite.show()
-			ghost_sprite.hide()
+			animation.play("in_preparing_for_kick")
 
 
 func _input(event):

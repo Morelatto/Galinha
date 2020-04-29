@@ -19,8 +19,8 @@ func _process(delta):
 		position.y += speed * delta
 		if position.y > initial_position.y:
 			is_going_up = true
-		
-	
+
+
 
 
 func _on_StaticBody2D_body_entered(body):

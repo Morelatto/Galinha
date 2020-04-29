@@ -11,6 +11,7 @@ onready var checkpoint = Checkpoint.new()
 onready var particles = get_parent().find_node("Particles")
 onready var animation = get_node("AnimatedSprite")
 onready var camera = get_node("Camera")
+onready var sound = $AudioStreamPlayer2D
 
 var can_kick = true
 var is_falling = false
@@ -22,6 +23,7 @@ func _ready():
 
 func apply_force(direction):
 	apply_central_impulse(direction * FLYING_SPEED)
+	sound.play()
 	camera.shake(0.5,10,5)
 
 func emit_feathers(direction):

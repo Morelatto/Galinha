@@ -10,11 +10,6 @@
 [ext_resource path="res://Resources/8bitfont.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://Scenes/Stages/World_3.tscn" type="PackedScene" id=9]
 
-
-
-
-
-
 [sub_resource type="DynamicFont" id=1]
 size = 40
 outline_size = 2
