@@ -96,7 +96,7 @@ position = Vector2( -0.103531, -7.83962 )
 z_index = 6
 frames = SubResource( 14 )
 animation = "Idle"
-frame = 1
+frame = 2
 playing = true
 
 [node name="CollisionHead" type="CollisionShape2D" parent="."]
@@ -123,6 +123,7 @@ script = ExtResource( 6 )
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
 motion_mirroring = Vector2( 0, 0.1 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
@@ -131,6 +132,7 @@ texture = ExtResource( 3 )
 centered = false
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
 motion_mirroring = Vector2( 0, 0.1 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
