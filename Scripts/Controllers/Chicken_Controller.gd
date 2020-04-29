@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+class_name Chicken
+
 const FLYING_SPEED = 5
 const MIN_KICK_VELOCITY = 3
 const FALLING_VELOCITY_THRESHOLD = 50
@@ -8,6 +10,7 @@ const MAX_FALLING_SPEED = 100
 onready var checkpoint = Checkpoint.new()
 onready var particles = get_parent().find_node("Particles")
 onready var animation = get_node("AnimatedSprite")
+onready var camera = get_node("Camera")
 
 var can_kick = true
 var is_falling = false
@@ -19,6 +22,7 @@ func _ready():
 
 func apply_force(direction):
 	apply_central_impulse(direction * FLYING_SPEED)
+	camera.shake(0.5,10,5)
 
 func emit_feathers(direction):
 	particles.position = position
@@ -52,7 +56,7 @@ func _on_Chicken_body_entered(body):
 	if body.get_parent() is Spike:
 		sleeping = true
 		is_in_respawn = true
-	if body.get_parent() is SpringMushroom:
+	elif body.get_parent() is SpringMushroom:
 		var impulse = body.get_parent().get_force(position)
 		apply_central_impulse(impulse)
 	pass

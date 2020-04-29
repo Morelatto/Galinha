@@ -14,6 +14,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scripts/Checkpoint.gd"
 }, {
+"base": "RigidBody2D",
+"class": "Chicken",
+"language": "GDScript",
+"path": "res://Scripts/Controllers/Chicken_Controller.gd"
+}, {
+"base": "Node2D",
+"class": "Egg",
+"language": "GDScript",
+"path": "res://Scripts/Egg.gd"
+}, {
 "base": "Node2D",
 "class": "Spike",
 "language": "GDScript",
@@ -26,6 +36,8 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Checkpoint": "",
+"Chicken": "",
+"Egg": "",
 "Spike": "",
 "SpringMushroom": ""
 }
