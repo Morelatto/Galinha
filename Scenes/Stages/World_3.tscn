@@ -59,3 +59,5 @@ continuous_cd = 2
 [node name="Ghost" parent="." instance=ExtResource( 4 )]
 
 [node name="Particles" parent="." instance=ExtResource( 1 )]
+
+[node name="Control" type="Node2D" parent="."]
