@@ -1,6 +1,8 @@
 #Made by: HammerBro and improved by batmanasb
 extends Camera2D
 
+const DEFAULT_OFFSET = Vector2(0, -125)
+
 var _duration = 0.0
 var _period_in_ms = 0.0
 var _amplitude = 0.0
@@ -19,7 +21,7 @@ func _ready():
 func _process(delta):
 	# Only shake when there's shake time remaining.
 	if _timer == 0:
-		set_offset(Vector2())
+		set_offset(DEFAULT_OFFSET)
 		set_process(false)
 		return
 	# Only shake on certain frames.
