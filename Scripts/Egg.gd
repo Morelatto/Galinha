@@ -5,7 +5,7 @@ class_name Egg
 const FLOATING_DISTANCE = 5
 
 onready var initial_position = position
-onready var ui_object = get_tree().get_root().get_child(0).get_node("UILayer")
+onready var ui_object = get_tree().get_root().get_child(1).get_node("UILayer")
 
 var speed = 10
 var is_going_up = true

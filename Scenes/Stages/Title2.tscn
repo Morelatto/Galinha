@@ -8,7 +8,7 @@
 [ext_resource path="res://Backgrounds/buttons.png" type="Texture" id=6]
 [ext_resource path="res://Backgrounds/title.png" type="Texture" id=7]
 [ext_resource path="res://Resources/8bitfont.ttf" type="DynamicFontData" id=8]
-[ext_resource path="res://Scenes/Stages/World_3.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Stages/World_0.tscn" type="PackedScene" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
@@ -18,9 +18,9 @@ extra_spacing_top = 2
 extra_spacing_bottom = 2
 font_data = ExtResource( 8 )
 
-[sub_resource type="StyleBoxEmpty" id=3]
+[sub_resource type="StyleBoxEmpty" id=2]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=3]
 length = 11.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("StoryLabel:rect_position")
@@ -218,7 +218,7 @@ __meta__ = {
 margin_top = 560.0
 margin_right = 590.0
 margin_bottom = 601.0
-custom_styles/focus = SubResource( 3 )
+custom_styles/focus = SubResource( 2 )
 custom_fonts/font = ExtResource( 3 )
 text = "Skip (Esc)
 "
@@ -287,7 +287,7 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 0.3
-anims/StoryScroll = SubResource( 2 )
+anims/StoryScroll = SubResource( 3 )
 [connection signal="pressed" from="SkipButton" to="." method="_on_SkipText_pressed"]
 [connection signal="pressed" from="Buttons/TextureRect/VBoxContainer/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="Buttons/TextureRect/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]

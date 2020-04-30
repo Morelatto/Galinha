@@ -7,3 +7,4 @@ var egg_quantity = 0
 func add_egg():
 	egg_quantity += 1
 	egg_text.set_text(str("x", egg_quantity))
+	Globals.eggs_collected = egg_quantity

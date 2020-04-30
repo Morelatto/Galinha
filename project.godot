@@ -45,8 +45,12 @@ _global_script_class_icons={
 [application]
 
 config/name="Galinha"
-run/main_scene="res://Scenes/Stages/Title.tscn"
+run/main_scene="res://Scenes/Stages/Title2.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Globals="*res://Scripts/globals.gd"
 
 [display]
 
