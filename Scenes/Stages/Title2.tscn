@@ -92,7 +92,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 10, 11 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 260, 600 ), Vector2( 260, 300 ) ]
+"values": [ Vector2( 245, 600 ), Vector2( 245, 300 ) ]
 }
 tracks/6/type = "value"
 tracks/6/path = NodePath("Title:rect_position")
@@ -233,10 +233,10 @@ repeat = true
 playback/repeat = true
 
 [node name="Buttons" type="Control" parent="."]
-margin_left = 260.0
+margin_left = 245.0
 margin_top = 600.0
-margin_right = 360.0
-margin_bottom = 765.0
+margin_right = 375.0
+margin_bottom = 815.0
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
@@ -245,7 +245,7 @@ __meta__ = {
 [node name="TextureRect" type="TextureRect" parent="Buttons"]
 margin_right = 64.0
 margin_bottom = 109.0
-rect_scale = Vector2( 1.5, 1.5 )
+rect_scale = Vector2( 2, 2 )
 texture = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false

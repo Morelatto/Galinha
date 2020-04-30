@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Resources/8bitfont.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Sprites/egg.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/Controllers/UIController.gd" type="Script" id=3]
+[ext_resource path="res://Sprites/chicken_ui.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/rope.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/house.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
@@ -36,3 +39,57 @@ text = "x0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ProgressBar" type="ColorRect" parent="UI"]
+margin_left = 290.0
+margin_top = 564.0
+margin_right = 582.0
+margin_bottom = 592.0
+color = Color( 0.105882, 0.611765, 0.290196, 0.415686 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChickenUI" type="Sprite" parent="UI/ProgressBar"]
+position = Vector2( 15.9354, 13.0816 )
+rotation = 0.523599
+scale = Vector2( 1.1399, 1.11591 )
+z_index = 1
+texture = ExtResource( 4 )
+
+[node name="Stages" type="Node2D" parent="UI/ProgressBar"]
+
+[node name="rope" type="Sprite" parent="UI/ProgressBar/Stages"]
+position = Vector2( 64, 14 )
+rotation = -1.5708
+scale = Vector2( 1.2, 1 )
+texture = ExtResource( 5 )
+
+[node name="rope2" type="Sprite" parent="UI/ProgressBar/Stages"]
+position = Vector2( 106.41, 14 )
+rotation = -1.5708
+scale = Vector2( 1.2, 1 )
+texture = ExtResource( 5 )
+
+[node name="rope3" type="Sprite" parent="UI/ProgressBar/Stages"]
+position = Vector2( 146.923, 14 )
+rotation = -1.5708
+scale = Vector2( 1.2, 1 )
+texture = ExtResource( 5 )
+
+[node name="rope4" type="Sprite" parent="UI/ProgressBar/Stages"]
+position = Vector2( 187.837, 14 )
+rotation = -1.5708
+scale = Vector2( 1.2, 1 )
+texture = ExtResource( 5 )
+
+[node name="rope5" type="Sprite" parent="UI/ProgressBar/Stages"]
+position = Vector2( 237.361, 14 )
+rotation = -1.5708
+scale = Vector2( 1.2, 1 )
+texture = ExtResource( 5 )
+
+[node name="house" type="Sprite" parent="UI/ProgressBar/Stages"]
+position = Vector2( 280.165, 14 )
+scale = Vector2( 1.73422, 2.01268 )
+texture = ExtResource( 6 )

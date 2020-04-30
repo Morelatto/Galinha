@@ -10,6 +10,8 @@ onready var map = get_parent().get_parent()
 var is_triggered = false
 var converted_position = Vector2()
 
+signal advanced_level
+
 func _ready():
 	converted_position = map.to_global(position)
 
@@ -24,3 +26,4 @@ func trigger():
 	collisionShape.disabled = false
 	chicken.checkpoint = self
 	is_triggered = true
+	emit_signal("advanced_level")

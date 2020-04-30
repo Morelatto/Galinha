@@ -148,7 +148,7 @@ modulate = Color( 1, 1, 1, 0.8 )
 z_index = 10
 frames = SubResource( 5 )
 animation = "idle"
-frame = 5
+frame = 2
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

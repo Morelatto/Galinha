@@ -7,6 +7,8 @@ onready var skip = $SkipButton
 onready var skip_tween = $SkipButton/Tween
 
 func _ready():
+	# just in case the player finished the game and is returning to the title screen
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	animation.play("StoryScroll")
 	skip_tween.interpolate_property(skip, "modulate", Color(1, 1, 1, 0.5), Color(1, 1, 1, 0), 2, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	skip_tween.start()

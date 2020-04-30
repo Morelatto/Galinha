@@ -97,6 +97,7 @@ position = Vector2( -0.103531, -7.83962 )
 z_index = 6
 frames = SubResource( 14 )
 animation = "Idle"
+frame = 2
 playing = true
 
 [node name="CollisionHead" type="CollisionShape2D" parent="."]
