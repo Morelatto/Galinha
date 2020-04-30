@@ -1,4 +1,4 @@
-# Galinha
+# The Chicken, the Ghost and the Mountain
 
 ```
 Farmers
