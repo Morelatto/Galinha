@@ -72,7 +72,7 @@ position = Vector2( 0, 248 )
 position = Vector2( -64, -88 )
 
 [node name="Chicken" parent="." instance=ExtResource( 1 )]
-position = Vector2( 41.3306, -3020.72 )
+position = Vector2( 44.1218, 174.083 )
 
 [node name="Entities" type="Node2D" parent="."]
 

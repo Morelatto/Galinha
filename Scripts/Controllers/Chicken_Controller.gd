@@ -50,7 +50,7 @@ func respawn():
 	is_in_respawn = false
 
 func _process(delta):
-	check_if_can_kick(delta)	
+	check_if_can_kick(delta)
 	is_falling = linear_velocity.y > FALLING_VELOCITY_THRESHOLD
 	var state = "Idle"
 	if is_falling:
@@ -69,7 +69,7 @@ func check_if_can_kick(delta):
 		delay_for_kick_count = 0
 		can_kick = false
 		$AnimatedSprite.modulate = unavailable_color
-	
+
 	if counting_delay:
 		delay_for_kick_count += delta
 		if delay_for_kick_count > delay_for_kick:
@@ -77,7 +77,7 @@ func check_if_can_kick(delta):
 			counting_delay = false
 			delay_for_kick_count = 0
 			$AnimatedSprite.modulate = available_color
-		
+
 
 func _on_Chicken_body_entered(body):
 	if body.get_parent() is Spike:
