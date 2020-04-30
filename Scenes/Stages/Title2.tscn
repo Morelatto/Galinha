@@ -104,7 +104,7 @@ tracks/6/keys = {
 "times": PoolRealArray( 10, 11 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 600 ), Vector2( 0, 45 ) ]
+"values": [ Vector2( 0, 600 ), Vector2( 0, 70 ) ]
 }
 
 [node name="TitleScreen" type="Control"]
@@ -204,9 +204,9 @@ margin_right = 598.0
 margin_bottom = 777.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.980392, 0.694118, 0.0823529, 1 )
-text = "The Chicken
-The Ghost and
-The Mountain"
+text = "The Chicken,
+the Ghost and
+the Mountain"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false

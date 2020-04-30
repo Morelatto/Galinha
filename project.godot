@@ -44,7 +44,8 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Galinha"
+config/name="The Chicken, the Ghost and the Mountain"
+config/description="A fearless chicken and his ghost partner climb a mountain seeking revenge against an evil farmer!"
 run/main_scene="res://Scenes/Stages/Title2.tscn"
 config/icon="res://icon.png"
 
