@@ -9,4 +9,4 @@ func _ready():
 func _process(delta):
 	if position.y > initial_position.y + 200:
 		get_tree().change_scene_to(end)
-	
+
