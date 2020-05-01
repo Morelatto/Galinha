@@ -1,7 +1,8 @@
 extends TileMap
 
 const ROPE_TILE_NAME = "Rope"
-const ROPE = preload("res://Scenes/Entities/Rope.tscn")
+
+export (PackedScene) var rope
 
 onready var ui = get_parent().get_parent().find_node("UILayer")
 
@@ -21,7 +22,7 @@ func _ready():
 		add_new_checkpoint(tiles, height)
 
 func add_new_checkpoint(tiles, height):
-	var rope = ROPE.instance()
-	rope.position = map_to_world(tiles[((len(tiles))/2)])+cell_size/2
-	rope.connect("advanced_level", ui, "_on_advanced_level")
-	add_child(rope)
+	var new_rope = rope.instance()
+	new_rope.position = map_to_world(tiles[len(tiles) / 2]) + cell_size / 2
+	new_rope.connect("advanced_level", ui, "_on_advanced_level")
+	add_child(new_rope)

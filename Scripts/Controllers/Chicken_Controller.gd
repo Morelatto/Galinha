@@ -7,7 +7,6 @@ const MIN_KICK_VELOCITY = 3
 const FALLING_VELOCITY_THRESHOLD = 50
 const MAX_FALLING_SPEED = 100
 
-onready var checkpoint = Checkpoint.new()
 onready var particles = get_parent().find_node("Particles")
 onready var animation = get_node("AnimatedSprite")
 onready var camera = get_node("Camera")
@@ -23,10 +22,11 @@ var delay_for_kick_count = 0
 var unavailable_color = Color(0.8,0.8,0.8)
 var available_color = Color(1,1,1)
 
-var is_in_respawn = false
+var checkpoint: Transform2D
+var respawn: bool
 
 func _ready():
-	checkpoint.position = position
+	checkpoint = transform
 
 func apply_force(direction):
 	apply_central_impulse(direction * FLYING_SPEED)
@@ -38,16 +38,13 @@ func emit_feathers(direction):
 	particles.rotation = direction.angle()
 	particles.emitting = true
 
-func _physics_process(delta):
-	if is_in_respawn:
-		respawn()
-
-func respawn():
-	#32 is the size of the chicken.
-	var respawn_pos = Vector2(checkpoint.converted_position.x, checkpoint.converted_position.y - 32)
-	global_transform.origin = respawn_pos
-	rotation = 0
-	is_in_respawn = false
+func _integrate_forces(state):
+	if respawn:
+		# correct way of modifying rigid body position
+		state.set_transform(checkpoint)
+		# TODO find way of cancelling chicken movement
+		state.apply_central_impulse(-state.linear_velocity)
+		respawn = false
 
 func _process(delta):
 	check_if_can_kick(delta)
@@ -80,10 +77,6 @@ func check_if_can_kick(delta):
 
 
 func _on_Chicken_body_entered(body):
-	if body.get_parent() is Spike:
-		sleeping = true
-		is_in_respawn = true
-	elif body.get_parent() is SpringMushroom:
+	if body.get_parent() is SpringMushroom:
 		var impulse = body.get_parent().get_force(position)
 		apply_central_impulse(impulse)
-	pass

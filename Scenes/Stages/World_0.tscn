@@ -1,17 +1,18 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scenes/Entities/Chicken.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Entities/Ghost.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Resources/Tileset.tres" type="TileSet" id=3]
 [ext_resource path="res://Scenes/Particles_Feather.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/RopeTileMap.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Entities/Spike.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/Entities/Plank.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Objects/Spike.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Objects/Plank.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/UI.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Entities/Egg.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Entities/SpringMushroom.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Sprites/cabin.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Sprites/cabin.png" type="Texture" id=11]
 [ext_resource path="res://Scripts/HouseFinal.gd" type="Script" id=12]
+[ext_resource path="res://Scenes/Objects/RopeCheckpoint.tscn" type="PackedScene" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 315.481, 10 )
@@ -39,6 +40,7 @@ tile_data = PoolIntArray( -12845053, 1, 0, -12845025, 1, 0, -12779519, 1, 0, -12
 
 [node name="RopeTileMap" parent="Map" instance=ExtResource( 5 )]
 tile_data = PoolIntArray( -12845052, 5, 0, -12845051, 4, 0, -12845050, 4, 0, -12845049, 4, 0, -12845048, 4, 0, -12845047, 4, 0, -12845046, 4, 0, -12845045, 4, 0, -12845044, 4, 0, -12845043, 4, 0, -12845042, 4, 0, -12845041, 4, 0, -12845040, 4, 0, -12845039, 4, 0, -12845038, 4, 0, -12845037, 6, 0, -11206655, 5, 0, -11206654, 4, 0, -11206653, 4, 0, -11206652, 4, 0, -11206651, 4, 0, -11206650, 4, 0, -11206649, 6, 0, -11206644, 5, 0, -11206643, 4, 0, -11206642, 4, 0, -11206641, 4, 0, -11206640, 4, 0, -11206639, 4, 0, -11206638, 4, 0, -11206637, 4, 0, -11206636, 4, 0, -11206635, 4, 0, -11206634, 4, 0, -11206633, 4, 0, -11206632, 4, 0, -11206631, 6, 0, -6750207, 5, 0, -6750206, 4, 0, -6750205, 4, 0, -6750204, 4, 0, -6750203, 4, 0, -6750202, 4, 0, -6750201, 4, 0, -6750200, 4, 0, -6750199, 4, 0, -6750198, 6, 0, -5570552, 5, 0, -5570550, 4, 0, -5570549, 4, 0, -5570548, 4, 0, -5570547, 4, 0, -5570546, 4, 0, -5570545, 4, 0, -5570544, 4, 0, -5570543, 4, 0, -5570542, 4, 0, -5570541, 4, 0, -5570540, 4, 0, -5570539, 4, 0, -5570538, 4, 0, -5570537, 4, 0, -5570536, 4, 0, -5570535, 4, 0, -5570534, 6, 0, -2555878, 5, 0, -2555877, 4, 0, -2555876, 4, 0, -2555875, 4, 0, -2555874, 4, 0, -2555873, 4, 0, -2555872, 4, 0, -2555871, 4, 0, -2555870, 4, 0, -2555869, 4, 0, -2555868, 6, 0, -1048564, 5, 0, -1048563, 4, 0, -1048562, 4, 0, -1048561, 4, 0, -1048560, 4, 0, -1048559, 4, 0, -1048558, 4, 0, -1048557, 4, 0, -1048556, 4, 0, -1048555, 4, 0, -1048554, 4, 0, -1048553, 4, 0, -1048552, 6, 0 )
+rope = ExtResource( 13 )
 
 [node name="FenceBushTilemap" type="TileMap" parent="Map"]
 z_index = 5
@@ -72,7 +74,7 @@ position = Vector2( 0, 248 )
 position = Vector2( -64, -88 )
 
 [node name="Chicken" parent="." instance=ExtResource( 1 )]
-position = Vector2( 44.1218, 174.083 )
+position = Vector2( 418.582, -1620.16 )
 
 [node name="Entities" type="Node2D" parent="."]
 
@@ -118,11 +120,14 @@ z_index = 7
 position = Vector2( 152, -2856 )
 direction = Vector2( 0, -10 )
 
-[node name="Barrier" parent="Entities/Level6" instance=ExtResource( 7 )]
-position = Vector2( 134.513, -3010.32 )
+[node name="Plank" parent="Entities/Level6" instance=ExtResource( 7 )]
+position = Vector2( 134.513, -3010.53 )
 rotation = 1.5708
-scale = Vector2( 0.8, 1.2 )
 z_index = 10
+
+[node name="Sprite" parent="Entities/Level6/Plank" index="0"]
+position = Vector2( -2.76183e-11, 7.62939e-06 )
+scale = Vector2( 1.64173, 1.31264 )
 
 [node name="Level 5" type="Node2D" parent="Entities"]
 
@@ -148,52 +153,13 @@ position = Vector2( 64, 0 )
 z_index = 3
 direction = Vector2( -10, 0 )
 
-[node name="SpikeLevel4" parent="Entities/Level4" instance=ExtResource( 6 )]
-position = Vector2( 312, -1600 )
-z_index = 5
-
-[node name="Spike2" parent="Entities/Level4/SpikeLevel4" instance=ExtResource( 6 )]
-position = Vector2( 16, 0 )
-
-[node name="Spike3" parent="Entities/Level4/SpikeLevel4" instance=ExtResource( 6 )]
-position = Vector2( 32, 0 )
-
-[node name="Spike4" parent="Entities/Level4/SpikeLevel4" instance=ExtResource( 6 )]
-position = Vector2( 48, 0 )
-
-[node name="Spike5" parent="Entities/Level4/SpikeLevel4" instance=ExtResource( 6 )]
-position = Vector2( 64, 0 )
-
-[node name="Spike6" parent="Entities/Level4/SpikeLevel4" instance=ExtResource( 6 )]
-position = Vector2( 80, 0 )
-
-[node name="Spike11" parent="Entities/Level4/SpikeLevel4" instance=ExtResource( 6 )]
-position = Vector2( -80, 0 )
-
-[node name="Spike10" parent="Entities/Level4/SpikeLevel4" instance=ExtResource( 6 )]
-position = Vector2( -64, 0 )
-
-[node name="Spike9" parent="Entities/Level4/SpikeLevel4" instance=ExtResource( 6 )]
-position = Vector2( -48, 0 )
-
-[node name="Spike8" parent="Entities/Level4/SpikeLevel4" instance=ExtResource( 6 )]
-position = Vector2( -32, 0 )
-
-[node name="Spike7" parent="Entities/Level4/SpikeLevel4" instance=ExtResource( 6 )]
-position = Vector2( -16, 0 )
-
-[node name="Spike14" parent="Entities/Level4/SpikeLevel4" instance=ExtResource( 6 )]
-position = Vector2( -128, 0 )
-
-[node name="Spike13" parent="Entities/Level4/SpikeLevel4" instance=ExtResource( 6 )]
-position = Vector2( -112, 0 )
-
-[node name="Spike12" parent="Entities/Level4/SpikeLevel4" instance=ExtResource( 6 )]
-position = Vector2( -96, 0 )
-
 [node name="Egg" parent="Entities/Level4" instance=ExtResource( 9 )]
 position = Vector2( 280, -1664 )
 z_index = 10
+
+[node name="Spikes" parent="Entities/Level4" instance=ExtResource( 6 )]
+position = Vector2( 185, -1600 )
+amount = 14
 
 [node name="Level3" type="Node2D" parent="Entities"]
 
@@ -202,31 +168,25 @@ position = Vector2( 48, -1024 )
 
 [node name="Level2" type="Node2D" parent="Entities"]
 
-[node name="BarrierLevel2" parent="Entities/Level2" instance=ExtResource( 7 )]
-position = Vector2( 416, -504 )
-
-[node name="SpikeLevel2" parent="Entities/Level2" instance=ExtResource( 6 )]
-position = Vector2( 472, -352 )
-
-[node name="Spike2" parent="Entities/Level2/SpikeLevel2" instance=ExtResource( 6 )]
-position = Vector2( 16, 0 )
-
-[node name="Spike3" parent="Entities/Level2/SpikeLevel2" instance=ExtResource( 6 )]
-position = Vector2( 32, 0 )
-
-[node name="Spike4" parent="Entities/Level2/SpikeLevel2" instance=ExtResource( 6 )]
-position = Vector2( 48, 0 )
-
-[node name="Spike5" parent="Entities/Level2/SpikeLevel2" instance=ExtResource( 6 )]
-position = Vector2( 64, 0 )
-
-[node name="Spike6" parent="Entities/Level2/SpikeLevel2" instance=ExtResource( 6 )]
-position = Vector2( 80, 0 )
-
 [node name="Egg" parent="Entities/Level2" instance=ExtResource( 9 )]
 position = Vector2( 432, -640 )
+
+[node name="Spikes" parent="Entities/Level2" instance=ExtResource( 6 )]
+position = Vector2( 470, -352 )
+amount = 6
+
+[node name="Plank" parent="Entities/Level2" instance=ExtResource( 7 )]
+position = Vector2( 422.908, -509.144 )
+
+[node name="Sprite" parent="Entities/Level2/Plank" index="0"]
+position = Vector2( 0.0177126, -0.0279967 )
+scale = Vector2( 1.64326, 1.32468 )
 
 [node name="Level 1" type="Node2D" parent="Entities"]
 
 [node name="Egg3" parent="Entities/Level 1" instance=ExtResource( 9 )]
 position = Vector2( 464, -128 )
+
+[editable path="Entities/Level6/Plank"]
+
+[editable path="Entities/Level2/Plank"]

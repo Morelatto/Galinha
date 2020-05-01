@@ -1,6 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Sprites/feather.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Sprites/feather.png" type="Texture" id=1]
+
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.92963, 1 )

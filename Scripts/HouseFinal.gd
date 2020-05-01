@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-var end = preload("res://Scenes/Stages/End.tscn")
+var end = preload("res://Scenes/End.tscn")
 var initial_position = Vector2()
 
 func _ready():
