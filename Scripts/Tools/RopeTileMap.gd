@@ -2,7 +2,7 @@ extends TileMap
 
 const ROPE_TILE_NAME = "Rope"
 
-export (PackedScene) var rope
+onready var rope = preload("res://Scenes/Objects/RopeCheckpoint.tscn")
 
 onready var ui = get_parent().get_parent().find_node("UILayer")
 

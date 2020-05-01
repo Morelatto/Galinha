@@ -1,13 +1,14 @@
-extends Node2D
+extends Control
 
 onready var egg_text = get_child(0).get_child(0).get_child(0)
-onready var chicken_ui = $UI/ProgressBar/ChickenUI
+onready var chicken_ui = $UILayer/ProgressBar/ChickenUI
+onready var stages_ui = $UILayer/ProgressBar/Stages
 
 var egg_quantity = 0
 var stages = []
 
 func _ready():
-	for stage in $UI/ProgressBar/Stages.get_children():
+	for stage in stages_ui.get_children():
 		stages.append(stage)
 
 func add_egg():

@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/RopeTileMap.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Resources/Tileset.tres" type="TileSet" id=2]
+[ext_resource path="res://Scripts/Tools/RopeTileMap.gd" type="Script" id=3]
+
+[node name="Level" type="Node2D"]
+
+[node name="Map" type="Node2D" parent="."]
+
+[node name="CaveTileMap" type="TileMap" parent="Map"]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+
+[node name="RopeTileMap" type="TileMap" parent="Map" instance=ExtResource( 1 )]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+collision_friction = 0.6
+format = 1
+script = ExtResource( 3 )
+
+[node name="FenceBushTilemap" type="TileMap" parent="Map"]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+
+[node name="RockTileMap" type="TileMap" parent="Map"]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+collision_friction = 0.9
+format = 1
+
+[node name="GrassTreeTileMap" type="TileMap" parent="Map"]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+collision_friction = 0.6
+format = 1

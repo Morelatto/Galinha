@@ -54,7 +54,7 @@ func shake(duration, frequency, amplitude):
 	# Don't interrupt current shake duration
 	if(_timer != 0):
 		return
-	
+
 	# Initialize variables.
 	_duration = duration
 	_timer = duration

@@ -9,11 +9,6 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Position2D",
-"class": "Checkpoint",
-"language": "GDScript",
-"path": "res://Scripts/Checkpoint.gd"
-}, {
 "base": "RigidBody2D",
 "class": "Chicken",
 "language": "GDScript",
@@ -22,23 +17,16 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "Egg",
 "language": "GDScript",
-"path": "res://Scripts/Egg.gd"
-}, {
-"base": "Node2D",
-"class": "Spike",
-"language": "GDScript",
-"path": "res://Scripts/Spike.gd"
+"path": "res://Scripts/Objects/Egg.gd"
 }, {
 "base": "Node2D",
 "class": "SpringMushroom",
 "language": "GDScript",
-"path": "res://Scripts/SpringMushroom.gd"
+"path": "res://Scripts/Objects/SpringMushroom.gd"
 } ]
 _global_script_class_icons={
-"Checkpoint": "",
 "Chicken": "",
 "Egg": "",
-"Spike": "",
 "SpringMushroom": ""
 }
 
@@ -46,7 +34,7 @@ _global_script_class_icons={
 
 config/name="The Chicken, the Ghost and the Mountain"
 config/description="A fearless chicken and his ghost partner climb a mountain seeking revenge against an evil farmer!"
-run/main_scene="res://Scenes/Stages/Title2.tscn"
+run/main_scene="res://Scenes/Title.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -89,6 +77,11 @@ ui_mouse_action={
 "events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
  ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="World"
+2d_physics/layer_2="Player"
 
 [physics]
 
