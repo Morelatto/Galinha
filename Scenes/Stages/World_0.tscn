@@ -1,32 +1,25 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/Entities/Chicken.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Entities/Ghost.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Resources/Tileset.tres" type="TileSet" id=3]
-[ext_resource path="res://Scenes/Particles_Feather.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Objects/House.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/RopeTileMap.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Objects/Spike.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Objects/Plank.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/UI/UI.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Objects/Egg.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Objects/SpringMushroom.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Assets/Sprites/Cabin.png" type="Texture" id=11]
-[ext_resource path="res://Scripts/Objects/HouseFinal.gd" type="Script" id=12]
-
-
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 315.481, 10 )
+extents = Vector2( 300, 10 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 10, 174.239 )
+extents = Vector2( 10, 160 )
 
 [node name="World" type="Node2D"]
 
 [node name="UILayer" parent="." instance=ExtResource( 8 )]
-
-[node name="LevelBottom" type="Position2D" parent="."]
-position = Vector2( 0, 656 )
 
 [node name="Map" type="Node2D" parent="."]
 position = Vector2( 0, -104 )
@@ -62,9 +55,6 @@ tile_data = PoolIntArray( -10092543, 8, 0, -10026985, 2, 0, -10026984, 2, 1, -10
 
 [node name="Ghost" parent="." instance=ExtResource( 2 )]
 
-[node name="Particles" parent="." instance=ExtResource( 4 )]
-position = Vector2( -64, -88 )
-
 [node name="Chicken" parent="." instance=ExtResource( 1 )]
 position = Vector2( 418.582, -1620.16 )
 
@@ -90,17 +80,7 @@ shape = SubResource( 2 )
 [node name="House" type="Node2D" parent="Entities/Final"]
 position = Vector2( 509.907, -3288.31 )
 
-[node name="HouseBody" type="RigidBody2D" parent="Entities/Final/House"]
-mass = 3.0
-script = ExtResource( 12 )
-
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Entities/Final/House/HouseBody"]
-position = Vector2( -16.3076, -15.1418 )
-polygon = PoolVector2Array( -70.0713, 47.1121, -69.9674, 3.7854, -76.9263, 3.90137, -76.6943, -3.63745, -73.9108, -3.40552, -73.6788, -28.3416, -82.7254, -28.5737, -86.901, -32.8628, -38.5361, -73.3403, 31.8653, -73.5703, 80.462, -33.0938, 77.0986, -28.1067, 71.2994, -28.1067, 71.5314, -3.17065, 73.0392, -3.17065, 73.2711, 3.5564, 66.4281, 3.90454, 66.892, 47.3984 )
-
-[node name="cabin" type="Sprite" parent="Entities/Final/House/HouseBody"]
-position = Vector2( -19.1244, -27.4275 )
-texture = ExtResource( 11 )
+[node name="HouseBody" parent="Entities/Final/House" instance=ExtResource( 4 )]
 
 [node name="Level6" type="Node2D" parent="Entities"]
 

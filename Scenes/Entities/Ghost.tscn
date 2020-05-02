@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Assets/Sprites/Chicken/GhostBoot.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Sprites/Chicken/marombaSheet.png" type="Texture" id=2]
-[ext_resource path="res://Scripts/Controllers/Ghost_Controller.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Controllers/GhostController.gd" type="Script" id=3]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 2 )
@@ -130,7 +130,7 @@ tracks/3/keys = {
 }
 
 [node name="Ghost" type="Node2D"]
-z_index = 100
+z_index = 1
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true

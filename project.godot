@@ -8,20 +8,15 @@
 
 config_version=4
 
-_global_script_classes=[ {
-"base": "RigidBody2D",
-"class": "Chicken",
-"language": "GDScript",
-"path": "res://Scripts/Controllers/Chicken_Controller.gd"
-} ]
+_global_script_classes=[  ]
 _global_script_class_icons={
-"Chicken": ""
+
 }
 
 [application]
 
 config/name="The Chicken, the Ghost and the Mountain"
-config/description="A fearless chicken and his ghost partner climb a mountain seeking revenge against an evil farmer!"
+config/description="A fearless chicken and his ghost partner climb a mountain seeking revenge against an evil farmer"
 run/main_scene="res://Scenes/UI/Title.tscn"
 config/icon="res://icon.png"
 

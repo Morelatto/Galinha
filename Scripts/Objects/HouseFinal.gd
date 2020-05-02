@@ -8,6 +8,6 @@ func _ready():
 	initial_position = position
 
 func _process(delta):
-	if position.y > initial_position.y + 200:
+	if position.y > initial_position.y + 400:
 		get_tree().change_scene_to(end)
 

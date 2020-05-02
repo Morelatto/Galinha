@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Resources/8bitdynamic.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Scripts/Controllers/EndController.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/UI/EndScreen.gd" type="Script" id=2]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0, 0.474359, 1 )

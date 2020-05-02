@@ -24,12 +24,13 @@ position = Vector2( 143.95, 213.572 )
 rotation = 1.5708
 
 [node name="Sprite" parent="Plank" index="0"]
-scale = Vector2( 1.60311, 1.5 )
+scale = Vector2( 1.62093, 1.5 )
 
 [node name="Egg" parent="." index="2" instance=ExtResource( 4 )]
 position = Vector2( 153.15, 114.075 )
 
 [node name="SpringMushroom" parent="." index="3" instance=ExtResource( 3 )]
 position = Vector2( 148.566, 364.45 )
+direction = Vector2( 0, -10 )
 
 [editable path="Plank"]

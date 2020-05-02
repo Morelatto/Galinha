@@ -1,14 +1,12 @@
 extends RigidBody2D
 
-class_name Chicken
-
 const FLYING_SPEED = 5
 const MIN_KICK_VELOCITY = 3
 const FALLING_VELOCITY_THRESHOLD = 50
 const MAX_FALLING_SPEED = 100
 
 onready var particles = $FeatherParticles
-onready var animation = $AnimatedSprite
+onready var animated_sprite = $AnimatedSprite
 onready var camera = $Camera
 onready var sound = $AudioStreamPlayer2D
 
@@ -28,7 +26,7 @@ var respawn = false
 func apply_force(direction):
 	apply_central_impulse(direction * FLYING_SPEED)
 	sound.play()
-	camera.shake(0.5,10,5)
+	camera.shake(0.5, 10, 5)
 
 func emit_feathers(direction):
 	#particles.position = position
@@ -39,20 +37,19 @@ func _integrate_forces(state):
 	if respawn:
 		# correct way of modifying rigid body position
 		state.set_transform(checkpoint)
-		# TODO find way of cancelling chicken movement
-		state.apply_central_impulse(-state.linear_velocity)
+		state.set_linear_velocity(Vector2.ZERO)
+		state.set_angular_velocity(0.0)
 		respawn = false
+
+	if state.get_linear_velocity().y > FALLING_VELOCITY_THRESHOLD:
+		state.linear_velocity.y = FALLING_VELOCITY_THRESHOLD
+		is_falling = true
+	else:
+		is_falling = false
 
 func _process(delta):
 	check_if_can_kick(delta)
-	is_falling = linear_velocity.y > FALLING_VELOCITY_THRESHOLD
-	var state = "Idle"
-	if is_falling:
-		state = "Falling"
-		if linear_velocity.y > MAX_FALLING_SPEED:
-			linear_velocity.y = MAX_FALLING_SPEED
-	if animation.get_animation() != state:
-		animation.set_animation(state)
+	animated_sprite.set_animation("Falling" if is_falling else "Idle")
 
 func check_if_can_kick(delta):
 	if linear_velocity.length() < MIN_KICK_VELOCITY:
@@ -62,7 +59,7 @@ func check_if_can_kick(delta):
 		counting_delay = false
 		delay_for_kick_count = 0
 		can_kick = false
-		$AnimatedSprite.modulate = unavailable_color
+		animated_sprite.modulate = unavailable_color
 
 	if counting_delay:
 		delay_for_kick_count += delta
@@ -70,4 +67,4 @@ func check_if_can_kick(delta):
 			can_kick = true
 			counting_delay = false
 			delay_for_kick_count = 0
-			$AnimatedSprite.modulate = available_color
+			animated_sprite.modulate = available_color

@@ -25,9 +25,11 @@ func check_for_spawner(level):
 	var spawner = level.find_node("Spawner")
 	if spawner != null:
 		var spawner_pos = spawner.get_position()
+		var spawner_transform = spawner.get_transform()
 		spawner_pos.y += level.position.y
 		chicken.position = spawner_pos
-		chicken.checkpoint = spawner.get_global_transform()
+		spawner_transform.origin = spawner_pos
+		chicken.checkpoint = spawner_transform
 
 func has_egg(level):
 	return 1 if level.find_node("Egg") != null else 0

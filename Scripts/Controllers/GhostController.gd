@@ -106,6 +106,7 @@ func _input(event):
 
 		# left click release
 		if mouse_pressed_in_available_state and event.is_action_released("ui_mouse_action"):
+			#(event is InputEventScreenTouch and !event.is_pressed())):
 			final_mouse_pos = get_global_mouse_position()
 			change_state(GHOST_STATE.in_kick_animation)
 			draw_line = false

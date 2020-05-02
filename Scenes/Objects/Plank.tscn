@@ -5,9 +5,8 @@
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
 
-[sub_resource type="CapsuleShape2D" id=2]
-radius = 9.01587
-height = 74.8192
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 9.02733, 46.359 )
 
 [node name="Plank" type="RigidBody2D"]
 mass = 20.0
