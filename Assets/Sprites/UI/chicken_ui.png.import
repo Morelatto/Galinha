@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Cabin.png-84324c0dc3ef42bd509aa979c8b2bbe4.stex"
+path="res://.import/chicken_ui.png-19026af11505ca8473047a1d99e42bc8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Cabin.png"
-dest_files=[ "res://.import/Cabin.png-84324c0dc3ef42bd509aa979c8b2bbe4.stex" ]
+source_file="res://Assets/Sprites/UI/chicken_ui.png"
+dest_files=[ "res://.import/chicken_ui.png-19026af11505ca8473047a1d99e42bc8.stex" ]
 
 [params]
 

@@ -7,9 +7,9 @@ const MIN_KICK_VELOCITY = 3
 const FALLING_VELOCITY_THRESHOLD = 50
 const MAX_FALLING_SPEED = 100
 
-onready var particles = get_parent().find_node("Particles")
-onready var animation = get_node("AnimatedSprite")
-onready var camera = get_node("Camera")
+onready var particles = $FeatherParticles
+onready var animation = $AnimatedSprite
+onready var camera = $Camera
 onready var sound = $AudioStreamPlayer2D
 
 var can_kick = true
@@ -19,14 +19,11 @@ var counting_delay = false
 var delay_for_kick = 0.2
 var delay_for_kick_count = 0
 
-var unavailable_color = Color(0.8,0.8,0.8)
-var available_color = Color(1,1,1)
+const unavailable_color = Color(0.8, 0.8, 0.8)
+const available_color = Color(1, 1, 1)
 
 var checkpoint: Transform2D
-var respawn: bool
-
-func _ready():
-	checkpoint = transform
+var respawn = false
 
 func apply_force(direction):
 	apply_central_impulse(direction * FLYING_SPEED)
@@ -34,7 +31,7 @@ func apply_force(direction):
 	camera.shake(0.5,10,5)
 
 func emit_feathers(direction):
-	particles.position = position
+	#particles.position = position
 	particles.rotation = direction.angle()
 	particles.emitting = true
 
@@ -74,9 +71,3 @@ func check_if_can_kick(delta):
 			counting_delay = false
 			delay_for_kick_count = 0
 			$AnimatedSprite.modulate = available_color
-
-
-func _on_Chicken_body_entered(body):
-	if body.get_parent() is SpringMushroom:
-		var impulse = body.get_parent().get_force(position)
-		apply_central_impulse(impulse)

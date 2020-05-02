@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/chicken.wav-756acc3029b1e53b3b9e12f9562f65ee.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/chicken.wav"
+dest_files=[ "res://.import/chicken.wav-756acc3029b1e53b3b9e12f9562f65ee.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

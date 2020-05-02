@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Resources/Fonts/UI.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Assets/Sprites/Objects/Egg.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Controllers/UIController.gd" type="Script" id=3]
+
+[node name="UI" type="Control"]
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="UILayer"]
+anchor_top = 0.918
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -6.80005
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Egg" type="TextureRect" parent="UILayer/Control"]
+margin_left = 11.0
+margin_top = 4.0
+margin_right = 62.0
+margin_bottom = 48.0
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EggLabel" type="Label" parent="UILayer/Control"]
+margin_left = 58.4416
+margin_top = 15.3813
+margin_right = 96.4416
+margin_bottom = 38.2087
+custom_fonts/font = ExtResource( 1 )
+text = "x0"
+__meta__ = {
+"_edit_use_anchors_": false
+}

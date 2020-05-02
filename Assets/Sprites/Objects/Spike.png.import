@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Cabin.png-84324c0dc3ef42bd509aa979c8b2bbe4.stex"
+path="res://.import/Spike.png-973443331fa053bb4a91a5a66433606a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Cabin.png"
-dest_files=[ "res://.import/Cabin.png-84324c0dc3ef42bd509aa979c8b2bbe4.stex" ]
+source_file="res://Assets/Sprites/Objects/Spike.png"
+dest_files=[ "res://.import/Spike.png-973443331fa053bb4a91a5a66433606a.stex" ]
 
 [params]
 

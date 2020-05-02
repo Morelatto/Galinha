@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Cabin.png-84324c0dc3ef42bd509aa979c8b2bbe4.stex"
+path="res://.import/NightSky.png-6ed0c366f5be81a2fe36f78d9ef927ce.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Cabin.png"
-dest_files=[ "res://.import/Cabin.png-84324c0dc3ef42bd509aa979c8b2bbe4.stex" ]
+source_file="res://Assets/Backgrounds/NightSky.png"
+dest_files=[ "res://.import/NightSky.png-6ed0c366f5be81a2fe36f78d9ef927ce.stex" ]
 
 [params]
 

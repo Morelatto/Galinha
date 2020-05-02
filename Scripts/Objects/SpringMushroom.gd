@@ -1,9 +1,9 @@
 extends Node2D
 
-class_name SpringMushroom
-
 export var bounciness = 100
-export var direction = Vector2(0,10)
+export var direction = Vector2(0, 50)
 
-func get_force(nPosition):
-	return (direction * bounciness)
+func _on_Area2D_body_entered(chicken):
+	print("Spring mushroom collided with ", chicken.name)
+	var force = direction * bounciness
+	chicken.apply_central_impulse(force)

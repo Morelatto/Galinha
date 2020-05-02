@@ -1,3 +1,4 @@
 extends Node
 
-var eggs_collected = 0
+var collected_eggs = 0
+var total_eggs = 0

@@ -1,12 +1,13 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Assets/Sprites/Plank.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Sprites/Objects/Plank.png" type="Texture" id=1]
 
 [sub_resource type="PhysicsMaterial" id=1]
-friction = 0.1
+friction = 0.0
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 9, 46.5 )
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 9.01587
+height = 74.8192
 
 [node name="Plank" type="RigidBody2D"]
 mass = 20.0

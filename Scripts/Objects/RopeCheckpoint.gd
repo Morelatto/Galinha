@@ -10,6 +10,7 @@ var is_above = false
 # same thing as spikes with checkpoints
 # only collides with the player because of the layer
 func _on_Area2D_body_entered(chicken):
+	print("Rope checkpoint collided with ", chicken.name)
 	if is_above:
 		crete_standing_platform()
 		chicken.checkpoint = spawn_point.global_transform

@@ -7,11 +7,13 @@
 [ext_resource path="res://Scenes/RopeTileMap.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Objects/Spike.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Objects/Plank.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/UI.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/UI/UI.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Objects/Egg.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Objects/SpringMushroom.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Assets/Sprites/cabin.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Sprites/Cabin.png" type="Texture" id=11]
 [ext_resource path="res://Scripts/Objects/HouseFinal.gd" type="Script" id=12]
+
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 315.481, 10 )
@@ -108,7 +110,6 @@ z_index = 7
 
 [node name="SpringMushroom" parent="Entities/Level6" instance=ExtResource( 10 )]
 position = Vector2( 152, -2856 )
-bounciness = null
 direction = Vector2( 0, -10 )
 
 [node name="Plank" parent="Entities/Level6" instance=ExtResource( 7 )]
@@ -132,19 +133,16 @@ z_index = 10
 position = Vector2( 576, -1624 )
 rotation = -1.5708
 z_index = 10
-bounciness = null
 direction = Vector2( -10, 0 )
 
 [node name="SpringMushroom2" parent="Entities/Level4/SpringLevel4" instance=ExtResource( 10 )]
 position = Vector2( 32, 0 )
 z_index = 3
-bounciness = null
 direction = Vector2( -10, 0 )
 
 [node name="SpringMushroom3" parent="Entities/Level4/SpringLevel4" instance=ExtResource( 10 )]
 position = Vector2( 64, 0 )
 z_index = 3
-bounciness = null
 direction = Vector2( -10, 0 )
 
 [node name="Egg" parent="Entities/Level4" instance=ExtResource( 9 )]
